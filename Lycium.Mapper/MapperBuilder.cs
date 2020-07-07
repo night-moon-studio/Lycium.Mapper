@@ -152,6 +152,7 @@ namespace Lycium.Mapper
                 }
                 else
                 {
+
                     if (tempDstNode.Value.MemberType == MemberTypes.Property)
                     {
 
@@ -195,6 +196,10 @@ namespace Lycium.Mapper
             foreach (var item in dstMembers)
             {
 
+                if (_ignore_fields.Contains(item.Name))
+                {
+                    continue;
+                }
                 var node = srcMembers.First;
                 while (node != null)
                 {
